@@ -2,8 +2,8 @@
 
 ## Group Members
 
-- [Group Member 1 Name]
-- [Group Member 2 Name]
+- [Elvis Chizoba]
+
 
 ## Scenario
 
