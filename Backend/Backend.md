@@ -1,21 +1,10 @@
 # Architectural Decision Record (ADR)
 
-## Group Members
-
-- [Elvis Chizoba]
-
-
 ## Scenario
 
 ### Scenario 1: Retail Mobile App
 
-You are a team responsible for developing a new mobile app for a retail company. The app will allow customers to browse and purchase products, view their order history, and track the status of their deliveries. Additionally, the app will have a loyalty program feature, where customers can earn and redeem points for discounts on future purchases. The following requirements must be considered:
-
-1. The retail company wants the app to support offline mode, allowing customers to browse products and view their order history even when they are not connected to the internet. The app should sync data with the server once an internet connection is available.
-
-2. The retail company wants to send push notifications to customers to notify them about order updates, new product arrivals, and exclusive offers. The app should integrate with a push notification service to handle the delivery of notifications.
-
-3. The app needs to integrate with various payment gateways to facilitate secure and convenient transactions for customers. The team should select and integrate a suitable payment gateway or a combination of gateways based on security, ease of use, and compatibility with the app's target platforms.
+You are a team responsible for developing a new mobile app for a retail company. The app will allow customers to browse and purchase products, view their order history, and track the status of their deliveries. Additionally, the app will have a loyalty program feature, where customers can earn and redeem points for discounts on future purchases.
 
 ## Architectural Decision
 
@@ -23,22 +12,32 @@ You are a team responsible for developing a new mobile app for a retail company.
 
 #### Decision
 
-We have decided to use [Backend Language] as the programming language for the retail mobile app's backend.
+We have decided to use Node.js as the backend language for the retail mobile app.
 
 #### Rationale
 
-1.  Familiarity : Our development team has extensive experience with [Backend Language], which will accelerate development and reduce potential issues.
+1. JavaScript Ecosystem: Node.js leverages the JavaScript ecosystem, allowing us to share code and resources between the backend and frontend, streamlining development.
 
-2.  Community and Ecosystem : [Backend Language] has a strong community and a wide range of libraries and frameworks that can streamline backend development.
+2. Asynchronous Programming: Node.js excels in handling concurrent requests, which is critical for a retail app with potentially high user traffic.
 
-3.  Scalability : [Backend Language] offers scalability options, allowing us to handle increased traffic and data as the app grows.
+3. NPM (Node Package Manager): NPM provides a vast library of pre-built packages, simplifying the integration of third-party services and tools.
 
-4.  Compatibility : [Backend Language] is compatible with our chosen database and other technology stacks.
+4. Scalability: Node.js allows for easy horizontal scalability, ensuring that the backend can accommodate increasing demand.
+
+5. Community Support: Node.js has a large and active community that can offer assistance and solutions to potential challenges.
 
 #### Consequences
 
--  Development Team Skills : We need to ensure that our development team is skilled in [Backend Language] to maximize productivity.
+- JavaScript Skill Requirement: Development teams need strong JavaScript expertise for backend development.
 
--  Maintenance : Ongoing maintenance and updates will require expertise in [Backend Language].
+- Dependency on NPM: While NPM provides a wealth of packages, careful management is required to avoid dependency conflicts.
 
--  Compatibility : We must verify that [Backend Language] is compatible with the chosen database and other components of the system.
+- Long-Term Maintenance: Node.js is known for frequent updates, necessitating long-term maintenance and updates to stay current.
+
+## Business Requirements Met
+
+- The decision aligns with the business requirements of providing a scalable, efficient, and JavaScript-based backend for the retail app.
+
+## User Needs Met
+
+- The decision meets user needs by ensuring a responsive and high-performance backend, enhancing the overall shopping experience.

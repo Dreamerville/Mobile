@@ -1,21 +1,10 @@
 # Architectural Decision Record (ADR)
 
-## Group Members
-
-- [Elvis Chizoba]
-
-
 ## Scenario
 
 ### Scenario 1: Retail Mobile App
 
-You are a team responsible for developing a new mobile app for a retail company. The app will allow customers to browse and purchase products, view their order history, and track the status of their deliveries. Additionally, the app will have a loyalty program feature, where customers can earn and redeem points for discounts on future purchases. The following requirements must be considered:
-
-1. The retail company wants the app to support offline mode, allowing customers to browse products and view their order history even when they are not connected to the internet. The app should sync data with the server once an internet connection is available.
-
-2. The retail company wants to send push notifications to customers to notify them about order updates, new product arrivals, and exclusive offers. The app should integrate with a push notification service to handle the delivery of notifications.
-
-3. The app needs to integrate with various payment gateways to facilitate secure and convenient transactions for customers. The team should select and integrate a suitable payment gateway or a combination of gateways based on security, ease of use, and compatibility with the app's target platforms.
+You are a team responsible for developing a new mobile app for a retail company. The app will allow customers to browse and purchase products, view their order history, and track the status of their deliveries. Additionally, the app will have a loyalty program feature, where customers can earn and redeem points for discounts on future purchases.
 
 ## Architectural Decision
 
@@ -23,22 +12,30 @@ You are a team responsible for developing a new mobile app for a retail company.
 
 #### Decision
 
-We have decided to use a combination of relational and NoSQL databases for data storage in the retail mobile app.
+We have decided to use a combination of SQL and NoSQL databases for data storage in the retail mobile app. SQL databases will be used for structured data, such as user profiles and order history, while NoSQL databases will handle semi-structured and unstructured data, such as product information and reviews.
 
 #### Rationale
 
-1.  Relational Database : We will use a relational database for structured data such as user profiles, orders, and loyalty program information. Relational databases provide data consistency and integrity.
+1. Structured Data: SQL databases offer strong data consistency and are suitable for structured data that requires complex queries and transactions.
 
-2.  NoSQL Database : For unstructured or semi-structured data like product descriptions and reviews, we will use a NoSQL database. NoSQL databases offer flexibility and scalability for handling varying data formats.
+2. Scalability: NoSQL databases excel in handling semi-structured and unstructured data, providing the flexibility needed for product information and user-generated content.
 
-3.  Offline Mode : The combination of databases will support the app's offline mode by providing access to essential data even without an internet connection.
+3. Hybrid Approach: The hybrid approach allows us to utilize the strengths of both SQL and NoSQL databases, optimizing data management based on specific use cases.
 
-4.  Scalability : This architecture allows us to scale specific database components independently based on their needs.
+4. Reliability: Using a combination of databases ensures redundancy and reliability. Even if one database experiences issues, the other can continue to serve critical data.
 
 #### Consequences
 
--  Integration Complexity : Managing data across multiple database types may introduce integration challenges.
+- Complex Data Synchronization: The team must implement synchronization mechanisms to ensure data consistency between SQL and NoSQL databases.
 
--  Maintenance : Ongoing maintenance and optimization of both database types will be required.
+- Maintenance Overhead: Managing two types of databases increases maintenance complexity, including backups and updates.
 
--  Data Consistency : Ensuring data consistency between the two types of databases may require synchronization mechanisms.
+- Skill Requirement: Developers need expertise in both SQL and NoSQL database management.
+
+## Business Requirements Met
+
+- The decision aligns with the business requirements of handling structured and unstructured data efficiently and reliably.
+
+## User Needs Met
+
+- The decision meets user needs by ensuring data consistency and performance for various types of data used within the app.
